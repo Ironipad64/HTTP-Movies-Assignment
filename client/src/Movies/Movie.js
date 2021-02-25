@@ -25,14 +25,24 @@ function Movie({ addToSavedList }) {
   if (!movie) {
     return <div>Loading movie information...</div>;
   }
+  const handleEditClick = () => [
+    props.history.push(`/api/movies/:id`)
+  ]
 
   return (
     <div className="save-wrapper">
       <MovieCard movie={movie} />
 
-      <div className="save-button" onClick={saveMovie}>
+      {/* <div className="save-button" onClick={saveMovie}>
         Save
-      </div>
+      </div> */}
+      <button onClick={saveMovie} className="save-button">
+        Save
+      </button>
+      <button onClick={handleEditClick} className="edit-button">
+        Edit
+      </button>
+
     </div>
   );
 }
